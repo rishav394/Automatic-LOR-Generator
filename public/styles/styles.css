@@ -1,0 +1,161 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.title-bar {
+	position: sticky;
+	width: 100%;
+	top: 0px;
+	background-color: #6600ff;
+	overflow: hidden;
+	z-index: 1;
+}
+.title-bar a {
+	float: left;
+	color: #ffffff;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+.title-bar a:hover {
+	background-color: #ddd;
+	color: black;
+}
+.title-bar a.active {
+	background-color: #deb602;
+	color: white;
+}
+.main-page {
+	text-align: center;
+	padding-bottom: 45px;
+	width: 100%;
+}
+.text-content {
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-bottom: 26px;
+}
+.generator-box {
+	width: 800px;
+	height: 600px;
+	margin: 0 auto;
+	background: #e8eef3;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -400px;
+	margin-top: -300px;
+	border: 2px solid purple;
+}
+#generator-content {
+	margin-left: 16px;
+	margin-right: 16px;
+	margin-top: 24px;
+	text-align: center;
+}
+#generator-result {
+	width: 700px;
+	height: 520px;
+	margin: 0 auto;
+	background: #ffffff;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	border: 3px solid black;
+	font-family: Times;
+	margin-left: -365px;
+	margin-top: -270px;
+	text-align: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+.nav-buttons {
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: #cacaca;
+	line-height: 300%;
+	color: black;
+	text-align: center;
+	font-size: 12px;
+	border-top: 2px solid black;
+}
+.heading-container {
+	position: relative;
+	text-align: center;
+	color: white;
+}
+#title-image {
+	z-index: 0;
+	filter: brightness(50%);
+	width: 99vw;
+	height: auto;
+}
+.heading-text {
+	color: white;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.purple-button {
+	border: none;
+	background-color: #6600ff;
+	padding: 14px 28px;
+	font-size: 16px;
+	cursor: pointer;
+	display: inline-block;
+	color: white;
+}
+.column {
+	float: left;
+	width: 50%;
+}
+.row:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+.impact-statement {
+	background-color: #deb602;
+	color: white;
+	width: auto;
+	padding: 14px 16px;
+}
+
+@media screen and (max-width: 500px) {
+	.titlebar a {
+		float: none;
+		display: block;
+	}
+	.hide-mobile {
+		visibility: hidden;
+		font-size: 0;
+	}
+	.generator-box {
+		width: 90vw;
+		margin-left: -46vw;
+		height: 80vh;
+		margin-top: -40vh;
+	}
+	#generator-result {
+		width: 80vw;
+		margin-left: -43vw;
+		height: 75vh;
+		margin-top: -38vh;
+	}
+}

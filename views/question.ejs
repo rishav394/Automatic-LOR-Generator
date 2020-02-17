@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js'></script>
+
+    <style>
+      .section {
+        margin-top: 2rem;
+      }
+
+      label {
+        text-transform: capitalize;
+      }
+
+      input {
+        text-transform: uppercase;
+      }
+
+      body {
+        background-image: url('/bg.jpg');
+        height: 100%;
+        width: 100%;
+        /* Center and scale the image nicely */
+        /* background-position: center; */
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <blockquote class="container section">A sample LOR from a headmaster/senior faculty for a junior faculty trying to
+      persue his/her
+      career
+      elsewhere.
+    </blockquote>
+
+    <div class="row section">
+      <div class="col s12 m8 offset-m2">
+        <div class="card-panel lighten-2">
+          <div class="container section lol">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+
+
+      function htmlDecode(input) {
+        var e = document.createElement('textarea');
+        e.innerHTML = input;
+        // handle case of empty input
+        return e.childNodes.length === 0 ? "" : e.childNodes[ 0 ].nodeValue;
+      }
+      var req = htmlDecode(`<%= layout %>`);
+      $('.card-panel').hide();
+      $('.lol').html(req);
+      $('.card-panel').slideToggle(600);
+
+    </script>
+  </body>
+
+</html>
