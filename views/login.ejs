@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+    <style>
+      .box {
+        padding: 7px 10px 10px 20px !important;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin: 10;
+        transform: translateY(50%);
+      }
+
+      html {
+        background-image: url('/bg.jpg');
+        height: 100%;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container row">
+      <div class="center box col s12 m6 l4 push-m3 push-l4">
+        <% if (error != undefined){ %>
+        <p class="red"><%=error%></p>
+        <% } %>
+        <form action="/auth/login" method="post" autocomplete="off">
+          <div class="input-field">
+            <input type="text" id="username" name="username" /><br />
+            <label class="grey-text text-darken-2" for="username">Username</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="password" name="password" />
+            <label class="grey-text text-darken-2" for="password">Password</label>
+          </div>
+          <div>
+            <input class="btn" type="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+
+</html>

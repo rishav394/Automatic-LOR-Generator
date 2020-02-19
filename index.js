@@ -1,9 +1,29 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const passport = require('passport');
+require('./config/passport-setup');
+const authRoute = require('./routes/auth-routes');
+const cookieSession = require('cookie-session');
+const mongodb = require('./mongodb/mongodb.connect');
 
 const layout = require('./layout');
 
+var dbURI = 'mongodb://localhost:27017/se';
+
+// Encrypt cookie
+app.use(
+	cookieSession({
+		maxAge: 24 * 60 * 60 * 1000 * 2,
+		keys: [dbURI],
+	}),
+);
+
+mongodb.connect(dbURI);
+
+// init passport
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static('public'));
 app.use(express.json());
 app.use(
@@ -11,15 +31,39 @@ app.use(
 		extended: true,
 	}),
 );
+app.use('/auth', authRoute);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+const authcheck = (req, res, next) => {
+	if (req.user) {
+		next();
+	} else {
+		req.session.redirectTo = req.originalUrl;
+		res.redirect('/auth/login');
+	}
+};
+
+app.get('/login', (req, res) => {
+	if (!req.user) res.redirect('/auth/login');
+	else res.redirect('/welcome');
+});
+
+app.get('/welcome', authcheck, (req, res) => {
+	res.send(req.user);
+});
+
+app.get('/logout', function(req, res) {
+	req.logout();
+	res.redirect('/');
+});
 
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/start/', (req, res) => {
+app.get('/start/', authcheck, (req, res) => {
 	res.send(`
     <form action="/start/1" method="post"></form>
 <script>
@@ -42,7 +86,7 @@ app.get('/lor', (req, res) => {
 	});
 });
 
-app.post('/start/:question', (req, res) => {
+app.post('/start/:question', authcheck, (req, res) => {
 	var id = parseInt(req.params.question);
 	console.log(req.body);
 

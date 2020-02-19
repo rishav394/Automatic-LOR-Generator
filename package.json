@@ -1,12 +1,25 @@
 {
-  "name": "Automatic-LOR-Generator",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "ejs": "^3.0.1",
-    "express": "^4.17.1",
-    "mongoose": "^5.9.1"
-  }
+	"name": "Automatic-LOR-Generator",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged"
+		}
+	},
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"cookie-session": "^1.4.0",
+		"ejs": "^3.0.1",
+		"express": "^4.17.1",
+		"mongoose": "^5.9.1",
+		"passport": "^0.4.1",
+		"passport-local": "^1.0.0"
+	},
+	"devDependencies": {
+		"husky": "^4.2.3",
+		"prettier": "^1.19.1",
+		"pretty-quick": "^2.0.1"
+	}
 }
