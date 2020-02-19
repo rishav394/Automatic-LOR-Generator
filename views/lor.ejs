@@ -7,11 +7,9 @@
     <title>Document</title>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
     <style>
       body {
@@ -22,8 +20,7 @@
   </head>
 
   <body>
-    <div class="container asis">
-
+    <div class="container">
       <p>
         To Whom It May Concern:
       </p>
@@ -89,9 +86,11 @@
       <p>
         <%=writer%><br><%=designation%><br><%=school%>
       </p>
-
-
     </div>
+
+    <script>
+      $("p").attr("contentEditable", "true");
+    </script>
   </body>
 
 </html>

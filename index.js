@@ -5,8 +5,12 @@ const path = require('path');
 const layout = require('./layout');
 
 app.use(express.static('public'));
-app.use(express.json()); // to support JSON-encoded bodies
-app.use(express.urlencoded()); // to support URL-encoded bodies
+app.use(express.json());
+app.use(
+	express.urlencoded({
+		extended: true,
+	}),
+);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -24,13 +28,7 @@ app.get('/start/', (req, res) => {
   `);
 });
 
-var designation,
-	school,
-	name,
-	subject,
-	period,
-	degree,
-	writer = 'Pokemon';
+var designation, school, name, subject, period, degree, writer;
 
 app.get('/lor', (req, res) => {
 	res.render('lor.ejs', {

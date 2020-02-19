@@ -64,6 +64,8 @@
         // handle case of empty input
         return e.childNodes.length === 0 ? "" : e.childNodes[ 0 ].nodeValue;
       }
+
+      // Could have used - instead of =
       var req = htmlDecode(`<%= layout %>`);
       $('.card-panel').hide();
       $('.lol').html(req);
