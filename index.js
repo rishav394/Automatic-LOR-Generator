@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const passport = require('passport');
-require('./config/passport-setup');
+const passport = require('./config/passport-setup');
 const authRoute = require('./routes/auth-routes');
 const cookieSession = require('cookie-session');
 const mongodb = require('./mongodb/mongodb.connect');
@@ -22,8 +21,8 @@ app.use(
 mongodb.connect(dbURI);
 
 // init passport
-app.use(passport.initialize());
-app.use(passport.session());
+passport(app);
+
 app.use(express.static('public'));
 app.use(express.json());
 app.use(
