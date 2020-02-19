@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -6,19 +7,17 @@ const authRoute = require('./routes/auth-routes');
 const cookieSession = require('cookie-session');
 const mongodb = require('./mongodb/mongodb.connect');
 
-const layout = require('./layout');
-
-var dbURI = 'mongodb://localhost:27017/se';
+const layout = require('./lib/layout');
 
 // Encrypt cookie
 app.use(
 	cookieSession({
 		maxAge: 24 * 60 * 60 * 1000 * 2,
-		keys: [dbURI],
+		keys: [process.env.SECRET],
 	}),
 );
 
-mongodb.connect(dbURI);
+mongodb.connect(process.env.dbURI);
 
 // init passport
 passport(app);
@@ -58,13 +57,14 @@ app.get('/logout', function(req, res) {
 	res.redirect('/');
 });
 
-app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, 'index.html'));
+app.get('/signup', (req, res) => {
+	req.logOut();
+	res.redirect('/auth/signup');
 });
 
 app.get('/start/', authcheck, (req, res) => {
 	res.send(`
-    <form action="/start/1" method="post"></form>
+    <form action="/questions/1" method="post"></form>
 <script>
   document.forms[0].submit();
 </script>
@@ -85,16 +85,16 @@ app.get('/lor', (req, res) => {
 	});
 });
 
-app.post('/start/:question', authcheck, (req, res) => {
+app.post('/questions/:question', authcheck, (req, res) => {
 	var id = parseInt(req.params.question);
 	console.log(req.body);
+	id = id + 1;
 
 	var response = req.body ? req.body.answer : '';
 	switch (id) {
 		case 1:
 			var question = 'Lets get to know the applicant. How about the name?';
 			var sampleAnswer = 'rishav';
-			id = id + 1;
 			var solution = layout(id, sampleAnswer, question);
 			res.render('question.ejs', { layout: solution });
 			break;
@@ -103,7 +103,6 @@ app.post('/start/:question', authcheck, (req, res) => {
 
 			var question = 'Name of the Referee?';
 			var sampleAnswer = 'rahil';
-			id = id + 1;
 			var solution = layout(id, sampleAnswer, question);
 			res.render('question.ejs', { layout: solution });
 			break;
@@ -112,7 +111,6 @@ app.post('/start/:question', authcheck, (req, res) => {
 
 			var question = "Referee's designation?";
 			var sampleAnswer = 'Director';
-			id = id + 1;
 			var solution = layout(id, sampleAnswer, question);
 			res.render('question.ejs', { layout: solution });
 			break;
@@ -121,7 +119,6 @@ app.post('/start/:question', authcheck, (req, res) => {
 
 			var question = 'Your college?';
 			var sampleAnswer = 'NOT VIT please';
-			id = id + 1;
 			var solution = layout(id, sampleAnswer, question);
 			res.render('question.ejs', { layout: solution });
 			break;
@@ -130,7 +127,6 @@ app.post('/start/:question', authcheck, (req, res) => {
 
 			var question = 'What did the applicant teach?';
 			var sampleAnswer = 'Chemistry';
-			id = id + 1;
 			var solution = layout(id, sampleAnswer, question);
 			res.render('question.ejs', { layout: solution });
 			break;
@@ -139,7 +135,6 @@ app.post('/start/:question', authcheck, (req, res) => {
 
 			var question = 'How long did he/she teach ' + subject + ' ?';
 			var sampleAnswer = '3, four';
-			id = id + 1;
 			var solution = layout(id, sampleAnswer, question);
 			res.render('question.ejs', { layout: solution });
 			break;
@@ -148,7 +143,6 @@ app.post('/start/:question', authcheck, (req, res) => {
 
 			var question = 'His/her degree?';
 			var sampleAnswer = 'B.Tech';
-			id = id + 1;
 			var solution = layout(id, sampleAnswer, question);
 			res.render('question.ejs', { layout: solution });
 			break;
@@ -158,8 +152,8 @@ app.post('/start/:question', authcheck, (req, res) => {
 	}
 });
 
-var port = process.env.PORT || 3000;
-
-app.listen(port, () => {
-	console.log('App listening on http://localhost:' + port);
+app.use((err, req, res, next) => {
+	res.status(500).json({ message: err.message });
 });
+
+module.exports = app;
