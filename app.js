@@ -63,12 +63,23 @@ app.get('/signup', (req, res) => {
 });
 
 app.get('/start/', authcheck, (req, res) => {
-	res.send(`
-    <form action="/questions/1" method="post"></form>
-<script>
-  document.forms[0].submit();
-</script>
-  `);
+	// res.send(`
+	//   <form action="/questions/1" method="post"></form>
+	// 	<script>
+	// 	document.forms[0].submit();
+	// 	</script>
+	// `);
+	res.render('start');
+});
+
+app.post('/question', (req, res) => {
+	var choice = Object.keys(req.body)[0];
+});
+
+app.get('/', (req, res) => {
+	res.render('index', {
+		user: req.user,
+	});
 });
 
 var designation, school, name, subject, period, degree, writer;

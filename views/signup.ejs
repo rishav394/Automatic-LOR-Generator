@@ -67,6 +67,14 @@
         </a>
       </div>
     </div>
+
+    <script>
+      $(document).ready(() => {
+        if ($('p.red').html().length > 0) {
+          $('.box').css('transform', 'translateY(30%)')
+        }
+      })
+    </script>
   </body>
 
 </html>

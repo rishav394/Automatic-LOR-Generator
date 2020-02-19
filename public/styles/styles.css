@@ -30,6 +30,10 @@ body {
 	background-color: #deb602;
 	color: white;
 }
+.title-bar a.proactive {
+	background-color: grey;
+	color: white;
+}
 .main-page {
 	text-align: center;
 	padding-bottom: 45px;
@@ -135,6 +139,10 @@ body {
 	color: white;
 	width: auto;
 	padding: 14px 16px;
+}
+div.title-bar .right {
+	float: right;
+	width: 10%;
 }
 
 @media screen and (max-width: 500px) {
