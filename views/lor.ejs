@@ -1,96 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LOR</title>
+		<!-- Compiled and minified CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOR</title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+		<style>
+			body {
+				padding-top: 20px;
+			}
+		</style>
+	</head>
 
-    <style>
-      body {
-        padding: 40px;
-      }
-    </style>
+	<body>
+		<div class="container">
+			<div style="text-align: center;">
+				<p
+					style=" font-size: large; font-weight: 600; border-bottom: 2px solid black; width: 300px; margin: auto;"
+				>
+					To Whom It May Concern:
+				</p>
+			</div>
+			<p>
+				It gives me great pleasure to craft a letter of recommendation for
+				<%=name%> as she looks to apply to study in your prestigious
+				institution. <%=name%> has been a student of my Human Computer
+				Interaction class between July 2019 to December 2019 for <%=period%>.
+				While teaching her, I have grown accustomed to her refined sensibilities
+				and progressive understanding of the world of digital interactions. The
+				optimism with which she approaches challenging situations coupled with
+				her curiosity to learn have established her as a hard-working individual
+				and contributed greatly to the classroom atmosphere.
+			</p>
+			<p>
+				The main goal of HCI is to make computers more usable and receptive to
+				the users&#39; needs. <%=name%> truly understands that, and this
+				reflects in all her submissions. <%=name%> considers Stuart K Card, one
+				of the pioneers of applying human factors into HCI, as her biggest
+				inspiration, and has consistently expressed interest in going beyond the
+				classroom to get a deeper understanding of the subject. It’s her sense
+				of inquisitiveness as an individual that I admire the most. She now has
+				a <%=degree%> degree and is a master of all of the ingredients of
+				successful learning, especially the ability to inspire.
+			</p>
+			<p>
+				During my tenure as her professor, <%=name%> has continuously found new
+				ways to demonstrate a strong desire for solving technology problems and
+				innovations. <%=name%> is now highly skilled in UI Design and
+				Prototyping and has inculcated a habit of ideating design solutions at a
+				system and framework level. I introduced her to the idea of presenting
+				her mock-ups through prototypes. I am happy to observe and note that she
+				has explored the idea in all earnestness, and continues to refine and
+				perfect this extremely important skill. I can see that her passions lie
+				in building intuitive technology for people, by leveraging the power of
+				information, system design, and human collaboration.
+			</p>
+			<p>
+				That comportment in turn is driven by <%=name%>’s love and respect for
+				Software Engineering as a whole. <%=name%> views herself as the
+				messenger for something serious and important, and this is reflected in
+				the way he teaches and in the way his students respond.
+			</p>
+			<p>
+				<%=name%> personal strengths are as impressive as her intellectual
+				accomplishments. Her active, outgoing presence and resolving personality
+				has likely been shaped by the years she has spent on the basketball
+				team. She has also been actively participating in elocution and debate
+				competitionswhile juggling her academic responsibilities. She has also
+				demonstrated excellent leadership and team- building skills while
+				organising activities for our college’s creativity club and working
+				closely with her peers.
+			</p>
+			<p>
+				<%=name%>’s impact has even been felt outside the school with the other
+				students/parents as well. Her section on the importance of voting has
+				inspired students to cajole their parents to start learning basic design
+				and engineering principles.
+			</p>
+			<p>
+				<%=name%> has my highest recommendation for admission to your master’s
+				program. xxxxhas demonstrated excellence in all that she puts her mind
+				to, whether it&#39;s designing an app, collaborating with others, or
+				learning new skills. The complexities of the course combined with her
+				endless curiosity, peerless drive for perfection and outright passion
+				for learning, I believe, will put her on the path of achieving the
+				greatest specialization of the subject.
+			</p>
+			<p>
+				Sincerely,
+			</p>
+			<p><%=writer%><br /><%=designation%><br /><%=school%></p>
+		</div>
 
-  </head>
-
-  <body>
-    <div class="container">
-      <p>
-        To Whom It May Concern:
-      </p>
-      <p>
-        As <%=designation%> of <%=school%>
-        I am delighted to recommend to you a stellar member of our teaching staff,
-        Mr. <%=name%>, and to write this letter on his behalf. <%=name%> has taught <%=subject%> at the school for
-        <%=period%>
-        years. He is one of our most popular and effective instructors and has
-        already won several teaching awards.
-      </p>
-      <p>
-        He came to us directly upon completion of
-        his <%=degree%> degree, but immediately settled in as if an old pro. <%=name%>
-        is a master of all of the ingredients of successful teaching, especially
-        the ability to inspire.
-      </p>
-      <p>
-        This gentleman is highly professional in
-        both dress and demeanor. To my knowledge <%=name%> has never come to work
-        without both a suit and tie, more times than not a bow tie. The majority
-        of others at the school, both teachers and students, dress differently and
-        lean to more informality. Never once, however, has <%=name%>’s manner of dress
-        elicited the slightest comment. Why? It is simply because <%=name%>’s attire
-        seems entirely natural given his dignified comportment.
-      </p>
-      <p>
-        That comportment in turn is driven by <%=name%>’s
-        love and respect for American History. <%=name%> views himself as the messenger
-        for something serious and important, and this is reflected in the way he
-        teaches and in the way his students respond.
-      </p>
-      <p>
-        Reaction to <%=name%>’s classes has been
-        overwhelmingly positive. So much so that more than once it has been
-        reported to me that study hall students have been spotted lingering
-        outside the door to <%=name%>’s classroom listening to his lessons.
-      </p>
-      <p>
-        <%=name%>’s impact has even been felt outside
-        the school with the parents themselves. His section on the importance of
-        voting has inspired students to cajole their parents to register to vote.
-        Several have mentioned this to me at parent-teacher meetings. One even
-        called the school to have me pass on their thanks to Mr. <%=name%>.
-      </p>
-      <p>
-        The only thing that we in the school
-        administration have ever worried about in regard to <%=name%> is the prospect of funding his
-        bottled water. <%=name%> is such a passionate and prolific speaker that he needs
-        a steady supply to maintain his voice. So far we have gotten a pass on
-        this, as students have bought it for him, including what must have been a
-        year’s supply on his last birthday.
-      </p>
-      <p>
-        It will be a sad day when we announce
-        that <%=name%> will be pursuing his graduate degree on a fulltime basis. We can
-        only hope that he keeps his promise and returns to us as soon as the ink
-        is dry on his new diploma.
-      </p>
-      <p>
-        Sincerely,
-      </p>
-      <p>
-        <%=writer%><br><%=designation%><br><%=school%>
-      </p>
-    </div>
-
-    <script>
-      $("p").attr("contentEditable", "true");
-    </script>
-  </body>
-
+		<footer>
+			<div style="align-items: center; text-align: center;">
+				<h4 onclick="printPdf()">
+					Print
+				</h4>
+			</div>
+		</footer>
+		<script>
+			function printPdf() {
+				const footer = document.querySelector('footer');
+				footer.remove();
+				window.print();
+				document.appendChild(document.createElement(footer));
+			}
+			$('p').attr('contentEditable', 'true');
+		</script>
+	</body>
 </html>

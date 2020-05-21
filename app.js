@@ -74,6 +74,7 @@ app.get('/start/', authcheck, (req, res) => {
 
 app.post('/question', (req, res) => {
 	var choice = Object.keys(req.body)[0];
+	console.log(choice);
 });
 
 app.get('/', (req, res) => {

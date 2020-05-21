@@ -1,60 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LOR Generation</title>
+		<!-- Compiled and minified CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOR Generation</title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js'></script>
+		<link rel="stylesheet" href="styles/start.css" />
+	</head>
 
-    <link rel="stylesheet" href="styles/start.css">
-  </head>
+	<body>
+		<div class="container center">
+			<p>You are a</p>
+			<h3>Referee</h3>
+			<p>writing this <span class="bold">LOR</span> for a</p>
 
-  <body>
-    <div class="container center">
-      <p>You are a </p>
-      <h3>Referee</h3>
-      <p>writing this <span class="bold">LOR</span> for a </p>
+			<form action="/questions/0" method="post">
+				<div class="row hover14 hover08">
+					<div class="col l4 s12 m6 offset-l2">
+						<figure>
+							<button type="submit" name="student">
+								<img src="/student.png" alt="Student" />
+							</button>
+						</figure>
+						<p>Student</p>
+					</div>
+					<div class="col l4 s12 m6">
+						<figure>
+							<button type="submit" name="teacher">
+								<img src="/teacher.png" alt="Teacher" />
+							</button>
+						</figure>
+						<p>Faculty</p>
+					</div>
+				</div>
+			</form>
+		</div>
 
+		<script>
+			$('.hover08 figure').hover(() => {
+				$('.hover08 figure').each((i, elem) => {
+					if (!$(elem).is(':hover')) $(elem).addClass('dark');
+				});
+			});
 
-      <form action="/question" method="post">
-        <div class="row hover14 hover08">
-          <div class="col l4 s12 m6 offset-l2">
-            <figure>
-              <button type="submit" name="student"><img src="/student.png" alt="Student"></button>
-            </figure>
-            <p>Student</p>
-          </div>
-          <div class="col l4 s12 m6">
-            <figure>
-              <button type="submit" name="teacher"><img src="/teacher.png" alt="Teacher"></button>
-            </figure>
-            <p>Faculty</p>
-          </div>
-        </div>
-      </form>
-    </div>
-
-    <script>
-
-      $('.hover08 figure').hover(() => {
-        $('.hover08 figure').each((i, elem) => {
-          if (!$(elem).is(":hover"))
-            $(elem).addClass('dark')
-        })
-      })
-
-      $('.hover08 figure').mouseleave(() => {
-        $('.hover08 figure').each((i, elem) => {
-          $(elem).removeClass('dark')
-        })
-      })
-    </script>
-  </body>
-
+			$('.hover08 figure').mouseleave(() => {
+				$('.hover08 figure').each((i, elem) => {
+					$(elem).removeClass('dark');
+				});
+			});
+		</script>
+	</body>
 </html>
